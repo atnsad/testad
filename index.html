@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحه آزمایشی</title>
+
+  <!-- اسکریپت اصلی یکتانت -->
+  <script>
+    !function(e,t,n){
+      e.yektanetAnalyticsObject=n,
+      e[n]=e[n]||function(){e[n].q.push(arguments)},
+      e[n].q=e[n].q||[];
+      var a=t.getElementsByTagName("head")[0],
+          r=new Date,
+          c="https://cdn.yektanet.com/superscript-v2/4jtZkMmw/native-48755/yn_pub.js?v="
+            +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+          s=t.createElement("link");
+      s.rel="preload",
+      s.as="script",
+      s.href=c,
+      a.appendChild(s);
+      var l=t.createElement("script");
+      l.async=!0,
+      l.src=c,
+      a.appendChild(l);
+    }(window,document,"yektanet");
+  </script>
+
+  <style>
+    /* تنظیم برای اینکه بنر محتوای اصلی را نپوشاند */
+    body {
+      margin: 0;
+      padding-bottom: 90px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* استایل نوار چسبان پایین (بدون کلمات حساس به ادبلاک) */
+    .sticky-footer-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
+      padding: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- محتوای تستی صفحه -->
+  <main style="padding: 24px; line-height: 1.8;">
+    <h1>تست جایگاه بنری</h1>
+    <p>محتوای آزمایشی برای بررسی وضعیت لود اسکریپت و موقعیت بنر در انتهای صفحه.</p>
+  </main>
+
+  <!-- نوار بنر چسبان پایین -->
+  <div class="sticky-footer-bar" id="bottom-dock-panel">
+    <!-- جایگاه تبلیغ یکتانت -->
+    <div class="yn-bnr" id="ynpos-20940"></div>
+  </div>
+
+</body>
+</html>
