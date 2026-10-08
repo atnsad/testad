@@ -28,14 +28,13 @@
   </script>
 
   <style>
-    /* تنظیم برای اینکه بنر محتوای اصلی را نپوشاند */
     body {
       margin: 0;
-      padding-bottom: 90px;
+      padding-bottom: 100px;
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    /* استایل نوار چسبان پایین (بدون کلمات حساس به ادبلاک) */
+    /* کانتینر اصلی نوار پایین */
     .sticky-footer-bar {
       position: fixed;
       bottom: 0;
@@ -47,23 +46,85 @@
       align-items: center;
       background: #ffffff;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
-      padding: 6px 0;
+      padding: 10px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* وقتی دکمه بسته شدن فشرده شد */
+    .sticky-footer-bar.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(100%);
+    }
+
+    /* رپر داخلی برای تراز کردن دکمه و تبلیغ */
+    .dock-inner-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+    }
+
+    /* دکمه بستن (کلاس کاملاً خنثی جهت فرار از اد‌بلاک) */
+    .dock-dismiss-btn {
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      width: 24px;
+      height: 24px;
+      background: #2b2d42;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      z-index: 10;
+      user-select: none;
+    }
+
+    .dock-dismiss-btn:hover {
+      background: #d90429;
     }
   </style>
 </head>
 <body>
 
-  <!-- محتوای تستی صفحه -->
   <main style="padding: 24px; line-height: 1.8;">
-    <h1>تست جایگاه بنری</h1>
-    <p>محتوای آزمایشی برای بررسی وضعیت لود اسکریپت و موقعیت بنر در انتهای صفحه.</p>
+    <h1>تست نوار شناور یکتانت</h1>
+    <p>روی ضربدر گوشه چپ نوار پایین کلیک کن تا بسته شود.</p>
   </main>
 
-  <!-- نوار بنر چسبان پایین -->
-  <div class="sticky-footer-bar" id="bottom-dock-panel">
-    <!-- جایگاه تبلیغ یکتانت -->
-    <div class="yn-bnr" id="ynpos-20940"></div>
+  <!-- نوار چسبان پایین -->
+  <div class="sticky-footer-bar" id="bottomDockPanel">
+    <div class="dock-inner-wrap">
+      <!-- دکمه بستن خنثی -->
+      <button type="button" class="dock-dismiss-btn" id="dismissDockBtn" title="بستن">✕</button>
+      
+      <!-- جایگاه دست‌نخورده یکتانت -->
+      <div class="yn-bnr" id="ynpos-20940"></div>
+    </div>
   </div>
+
+  <script>
+    // اسکریپت مدیریت بستن نوار
+    (function () {
+      var panel = document.getElementById('bottomDockPanel');
+      var btn = document.getElementById('dismissDockBtn');
+      if (panel && btn) {
+        btn.addEventListener('click', function () {
+          panel.classList.add('is-hidden');
+          document.body.style.paddingBottom = '0px';
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
